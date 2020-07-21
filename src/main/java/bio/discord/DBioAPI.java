@@ -1,4 +1,4 @@
-package pw.chew;
+package bio.discord;
 
 public class DBioAPI {
     private final API api;
@@ -7,5 +7,5 @@ public class DBioAPI {
         api = new API();
     }
 
-    
+
 }

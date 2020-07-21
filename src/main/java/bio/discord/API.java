@@ -1,4 +1,4 @@
-package pw.chew;
+package bio.discord;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
