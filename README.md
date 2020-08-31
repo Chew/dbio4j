@@ -19,7 +19,7 @@ First, you need Chew's Maven repository
 ```
 ```xml
 <dependency>
-    <groupId>bio.discord</groupId>
+    <groupId>bio.discord.api</groupId>
     <artifactId>dbio4j</artifactId>
     <version>[version]</version>
 </dependency>
@@ -38,7 +38,7 @@ repositories {
 Then you need the dependency
 ```groovy
 dependencies {
-    compileOnly 'bio.discord:dbio4j:[version]'
+    compileOnly 'bio.discord.api:dbio4j:[version]'
 }
 ```
 
