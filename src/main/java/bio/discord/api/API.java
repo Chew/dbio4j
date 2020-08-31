@@ -1,4 +1,4 @@
-package bio.discord;
+package bio.discord.api;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
