@@ -8,10 +8,7 @@ import org.json.JSONObject;
 
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class User {
     private final JSONObject values;
@@ -100,8 +97,11 @@ public class User {
      * @return this user's birthday
      */
     public Date getBirthday() {
-        DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("uuuu-MM-dd");
-        return Date.from(OffsetDateTime.parse(getUserDetails().getString("birthday"), inputFormat).toInstant());
+        String[] date = getUserDetails().getString("birthday").split("-");
+        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+        calendar.set(Integer.parseInt(date[0]), Integer.parseInt(date[1]) - 1, Integer.parseInt(date[2]), 0, 0, 0);
+
+        return calendar.getTime();
     }
 
     /**
