@@ -2,6 +2,7 @@ package bio.discord.api.objects;
 
 import bio.discord.api.entities.Gender;
 import bio.discord.api.entities.PremiumType;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -74,7 +75,10 @@ public class User {
     /**
      * @return the description of this user
      */
+    @Nullable
     public String getDescription() {
+        if(getUserDetails().isNull("description"))
+            return null;
         return getUserDetails().getString("description");
     }
 
@@ -83,6 +87,8 @@ public class User {
      */
     @Nullable
     public String getLocation() {
+        if(getUserDetails().isNull("birthday"))
+            return null;
         return getUserDetails().getString("location");
     }
 
@@ -90,13 +96,18 @@ public class User {
      * @return this user's Gender
      */
     public Gender getGender() {
+        if(getUserDetails().isNull("birthday"))
+            return Gender.UNDISCLOSED;
         return Gender.fromInt(getUserDetails().getInt("gender"));
     }
 
     /**
      * @return this user's birthday
      */
+    @Nullable
     public Date getBirthday() {
+        if(getUserDetails().isNull("birthday"))
+            return null;
         String[] date = getUserDetails().getString("birthday").split("-");
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
         calendar.set(Integer.parseInt(date[0]), Integer.parseInt(date[1]) - 1, Integer.parseInt(date[2]), 0, 0, 0);
@@ -109,6 +120,8 @@ public class User {
      */
     @Nullable
     public String getEmail(){
+        if(getUserDetails().isNull("email"))
+            return null;
         return getUserDetails().getString("email");
     }
 
@@ -117,13 +130,18 @@ public class User {
      */
     @Nullable
     public String getOccupation() {
+        if(getUserDetails().isNull("occupation"))
+            return null;
         return getUserDetails().getString("occupation");
     }
 
     /**
      * @return the user's banner URL
      */
+    @Nullable
     public String getBannerUrl() {
+        if(getUserDetails().isNull("banner"))
+            return null;
         return getUserDetails().getString("banner");
     }
 
