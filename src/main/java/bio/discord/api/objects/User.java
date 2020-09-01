@@ -87,7 +87,7 @@ public class User {
      */
     @Nullable
     public String getLocation() {
-        if(getUserDetails().isNull("birthday"))
+        if(getUserDetails().isNull("location"))
             return null;
         return getUserDetails().getString("location");
     }
@@ -96,7 +96,7 @@ public class User {
      * @return this user's Gender
      */
     public Gender getGender() {
-        if(getUserDetails().isNull("birthday"))
+        if(getUserDetails().isNull("gender"))
             return Gender.UNDISCLOSED;
         return Gender.fromInt(getUserDetails().getInt("gender"));
     }
