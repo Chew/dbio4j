@@ -98,7 +98,7 @@ public class User {
     public Gender getGender() {
         if(getUserDetails().isNull("gender"))
             return Gender.UNDISCLOSED;
-        return Gender.fromInt(getUserDetails().getInt("gender"));
+        return Gender.values()[getUserDetails().getInt("gender")];
     }
 
     /**
@@ -167,7 +167,7 @@ public class User {
      * @return the user's premium type
      */
     public PremiumType getPremiumType() {
-        return PremiumType.fromInt(getUserDetails().getInt("premium_type"));
+        return PremiumType.values()[getUserDetails().getInt("premium_type")];
     }
 
     /**
